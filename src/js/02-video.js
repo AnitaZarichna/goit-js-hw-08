@@ -10,4 +10,8 @@ const getTime = function (event) {
   };
   
   iframePlayer.on('timeupdate', throttle(getTime, 1000));
-  iframePlayer.setCurrentTime(localStorage.getItem('videoplayer-current-time'));
+  
+  const currentTime = localStorage.getItem('videoplayer-current-time');
+  if (currentTime) {
+    iframePlayer.setCurrentTime(currentTime);
+  }
